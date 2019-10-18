@@ -49,18 +49,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DbModelContext.cs" />
+    <Compile Include="intefacestruct\DbFactory.cs" />
+    <Compile Include="intefacestruct\Disposable.cs" />
+    <Compile Include="intefacestruct\IDbFactory.cs" />
+    <Compile Include="intefacestruct\IRepository.cs" />
+    <Compile Include="intefacestruct\IUnitOfWork.cs" />
+    <Compile Include="intefacestruct\RepositoryBase.cs" />
+    <Compile Include="intefacestruct\UnitOfWork.cs" />
+    <Compile Include="Migrations\201910180616393_InittialDB.cs" />
+    <Compile Include="Migrations\201910180616393_InittialDB.Designer.cs">
+      <DependentUpon>201910180616393_InittialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PostCategoryRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\ProDuctCateGoryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopGame.Common\ShopGame.Common.csproj">
-      <Project>{2ca06442-16a2-4442-94fb-729784b619be}</Project>
-      <Name>ShopGame.Common</Name>
+    <ProjectReference Include="..\ShopGame.Model\ShopGame.Model.csproj">
+      <Project>{710951b6-5146-4f46-916b-7fffbc3109cf}</Project>
+      <Name>ShopGame.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910180616393_InittialDB.resx">
+      <DependentUpon>201910180616393_InittialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
