@@ -72,17 +72,8 @@ namespace ShopGame.Web.API
         public HttpResponseMessage Get(HttpResponseMessage request)
         {
             HttpResponseMessage response = null; 
-            if (ModelState.IsValid)
-            {
-
-            }
-            else
-            {
                 var list = _iPostCateGoryService.getAll();
-                response = Request.CreateResponse(HttpStatusCode.OK,list);
-
-            }
-
+            response = Request.CreateResponse(HttpStatusCode.OK, list);
             return response;
         }
     }
