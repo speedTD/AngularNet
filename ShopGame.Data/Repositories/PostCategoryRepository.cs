@@ -5,7 +5,7 @@ using ShopGame.Data.Repositories;
 using ShopGame.Model.Models;
 namespace ShopGame.Data.Repositories
 {
-    public interface IPostCategoryRepository
+    public interface IPostCategoryRepository: intefacestruct.IRepository<PostCateGory>
     {
 
     }

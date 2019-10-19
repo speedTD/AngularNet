@@ -52,9 +52,5 @@ namespace ShopGame.Model.Models
         public bool? hotflag { get; set; }
 
         public long? viewcount { get; set; }
-        [ForeignKey("categoryid")]
-        public virtual PostCateGory PostCateGory { set; get; }
-
-        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

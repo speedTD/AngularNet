@@ -11,7 +11,7 @@ namespace ShopGame.Data.intefacestruct
 
         DbModelContext dbcontext;
         public DbModelContext Init()
-        {
+        { 
             return dbcontext ?? (dbcontext = new DbModelContext());
         }
         protected override void DisposeCore()

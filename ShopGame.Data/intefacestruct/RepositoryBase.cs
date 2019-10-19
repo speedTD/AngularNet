@@ -24,6 +24,7 @@ namespace ShopGame.Data.intefacestruct
             get { return dataContext ?? (dataContext = dbFactory.Init()); }
         }
 
+        #endregion
         protected RepositoryBase (IDbFactory db)
         {
             dbFactory = db;
@@ -64,12 +65,21 @@ namespace ShopGame.Data.intefacestruct
         {
             if (includes != null && includes.Count() > 0)
             {
-                var query = dataContext.Set<T>().Include(includes.First());
-                foreach(var i in includes.Skip(1))
+                try
                 {
-                    query = query.Include(i);
+                    var query = dataContext.Set<T>().Include(includes.First());
+                    foreach (var i in includes.Skip(1))
+                    {
+                        query = query.Include(i);
+                    }
+                    return query.AsQueryable();
                 }
-                return query.AsQueryable();
+                catch(Exception ex)
+                {
+
+                }
+              
+             
             }
             return dataContext.Set<T>().AsQueryable();
         }
@@ -123,7 +133,7 @@ namespace ShopGame.Data.intefacestruct
             dbSet.Remove(GetSingleByid(id));
         }
       
-        #endregion
+  
     }
 }
 

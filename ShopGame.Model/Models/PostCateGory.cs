@@ -44,5 +44,10 @@ namespace ShopGame.Model.Models
         public bool status { get; set; }
 
         public bool? homeflag { get; set; }
+
+        
+        public virtual PostCateGory PostCateGory { set; get; }
+
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

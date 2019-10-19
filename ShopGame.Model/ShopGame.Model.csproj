@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Errorr.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\InfoSupport.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OderDetail.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Page.cs" />

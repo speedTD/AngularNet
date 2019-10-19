@@ -9,5 +9,9 @@ namespace ShopGame.Web.Infastucture.Core
 {
     public class BaseApiController : ApiController
     {
+        public BaseApiController()
+        {
+
+        }
     }
 }

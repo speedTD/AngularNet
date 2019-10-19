@@ -27,16 +27,17 @@ namespace ShopGame.Service
         void SaveChange();
         void Delete(int entity);
     }
-    class PostCateGoryService : IPostCateGoryService
+    public class PostCateGoryService : IPostCateGoryService
     {
-        PostCategoryRepository _postCategorrepository;
-        UnitOfWork _unitofwork;
-        public PostCateGoryService(PostCategoryRepository postCategorrepository, UnitOfWork unitofwork)
+        IPostCategoryRepository _postCategorrepository;
+        IUnitOfWork _unitofwork;
+        public PostCateGoryService(IPostCategoryRepository postCategorrepository, IUnitOfWork unitofwork)
         {
             _postCategorrepository = postCategorrepository;
             _unitofwork = unitofwork;
-
         }
+      
+
         public void Add(PostCateGory entity)
         {
             _postCategorrepository.Add(entity);
@@ -48,6 +49,7 @@ namespace ShopGame.Service
             _postCategorrepository.Delete(id);
         }
 
+
         public void Delete(PostCateGory entity)
         {
             throw new NotImplementedException();
@@ -55,7 +57,7 @@ namespace ShopGame.Service
 
         public IEnumerable<PostCateGory> getAll()
         {
-            return _postCategorrepository.getAll(new string[] { "PostCateGory" });
+            return _postCategorrepository.getAll(new string[] {"PostCateGory"});
         }
 
         public IEnumerable<PostCateGory> getllPaging(int page, int Pagesize, out int totalrow)
