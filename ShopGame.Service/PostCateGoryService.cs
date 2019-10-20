@@ -57,7 +57,7 @@ namespace ShopGame.Service
 
         public IEnumerable<PostCateGory> getAll()
         {
-            return _postCategorrepository.getAll(new string[] {"PostCateGory"});
+            return _postCategorrepository.getAll();
         }
 
         public IEnumerable<PostCateGory> getllPaging(int page, int Pagesize, out int totalrow)
