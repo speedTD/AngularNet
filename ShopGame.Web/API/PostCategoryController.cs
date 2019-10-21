@@ -87,7 +87,7 @@ namespace ShopGame.Web.API
         public HttpResponseMessage Get(HttpResponseMessage request)
         {
             HttpResponseMessage response = null;
-          
+           
 
             var list = _iPostCateGoryService.getAll();
             var listCateVM = Mapper.Map<List<PostCateGoryViewModel>>(list);
