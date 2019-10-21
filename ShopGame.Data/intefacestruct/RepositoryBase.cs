@@ -10,21 +10,22 @@ namespace ShopGame.Data.intefacestruct
 {
     public abstract class RepositoryBase<T> :IRepository<T> where T :class
     {
-        #region Properties
-        private DbModelContext dataContext;
-        readonly DbSet<T> dbSet;
+      
+        public  DbModelContext dataContext;
+        public readonly DbSet<T> dbSet;
        
-        protected IDbFactory dbFactory
+        public IDbFactory dbFactory
         {
             set;
             get;
+            
         }
-        protected DbModelContext DbContext
+        public DbModelContext DbContext
         {
             get { return dataContext ?? (dataContext = dbFactory.Init()); }
         }
 
-        #endregion
+   
         protected RepositoryBase (IDbFactory db)
         {
             dbFactory = db;
@@ -132,8 +133,11 @@ namespace ShopGame.Data.intefacestruct
         {
             dbSet.Remove(GetSingleByid(id));
         }
-      
-  
+
+        public void SaveChange()
+        {
+            dataContext.SaveChanges();
+        }
     }
 }
 

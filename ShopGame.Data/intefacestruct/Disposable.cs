@@ -27,7 +27,6 @@ namespace ShopGame.Data.intefacestruct
             }
             isDisposed = true;
         }
-
         protected virtual void DisposeCore()
         {
 

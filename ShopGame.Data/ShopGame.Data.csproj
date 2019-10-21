@@ -38,6 +38,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,9 +65,13 @@
     <Compile Include="intefacestruct\IUnitOfWork.cs" />
     <Compile Include="intefacestruct\RepositoryBase.cs" />
     <Compile Include="intefacestruct\UnitOfWork.cs" />
-    <Compile Include="Migrations\201910180616393_InittialDB.cs" />
-    <Compile Include="Migrations\201910180616393_InittialDB.Designer.cs">
-      <DependentUpon>201910180616393_InittialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201910210357066_InitialCreate.cs" />
+    <Compile Include="Migrations\201910210357066_InitialCreate.Designer.cs">
+      <DependentUpon>201910210357066_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910210443410_Chankey.cs" />
+    <Compile Include="Migrations\201910210443410_Chankey.Designer.cs">
+      <DependentUpon>201910210443410_Chankey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +90,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910180616393_InittialDB.resx">
-      <DependentUpon>201910180616393_InittialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910210357066_InitialCreate.resx">
+      <DependentUpon>201910210357066_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910210443410_Chankey.resx">
+      <DependentUpon>201910210443410_Chankey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

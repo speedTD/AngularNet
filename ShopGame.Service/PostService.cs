@@ -32,9 +32,9 @@ namespace ShopGame.Service
     public class PostService : IpostService
     {
 
-        PostRepository _postrepository;
-        UnitOfWork _unitofwork;
-        public PostService(PostRepository postRepository, UnitOfWork unitofwork)
+        IPostRepository _postrepository;
+        IUnitOfWork _unitofwork;
+        public PostService(IPostRepository postRepository, IUnitOfWork unitofwork)
         {
             _postrepository = postRepository;
             _unitofwork = unitofwork;
@@ -57,7 +57,7 @@ namespace ShopGame.Service
 
         public IEnumerable<Post> getAll()
         {
-            return _postrepository.getAll(new string[] { "PostCateGory" });
+            return _postrepository.getAll();
         }
 
         public IEnumerable<Post> getllPaging(int page, int Pagesize, out int totalrow)

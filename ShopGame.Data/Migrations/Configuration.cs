@@ -1,5 +1,8 @@
 namespace ShopGame.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Model.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +29,31 @@ namespace ShopGame.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+          /*  var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new DbModelContext()));
+            var rolemanager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new DbModelContext()));
+
+            //tao doi tuong
+            var user = new ApplicationUser()
+            {
+                UserName = "duy",
+                Email = "duy98@gmail.com",
+                EmailConfirmed = true,
+                birthday = DateTime.Now,
+                fullname = "ToDinhDuy"
+            };
+            manager.Create(user, "12345@");
+
+            if (!rolemanager.Roles.Any())
+            {
+                rolemanager.Create(new IdentityRole { Name = "Admin"});
+                rolemanager.Create(new IdentityRole { Name = "User"});
+            }
+
+            var admin = manager.FindByEmail("duy98@gmail.com");
+
+            manager.AddToRoles(admin.Id, new string[] {"Admin", "User"});
+            */
         }
     }
 }

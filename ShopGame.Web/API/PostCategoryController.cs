@@ -10,42 +10,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
+
 using ShopGame.Web.Infastucture.Extendsions;
+using System.Threading.Tasks;
+
+using System.Web.Http;
+using System.Collections;
 
 namespace ShopGame.Web.API
 {
     [RoutePrefix("api/postcategory")]
+
     public class PostCategoryController : ApiController
     {
-        IPostCateGoryService _iPostCateGoryService;
-      
+        readonly IPostCateGoryService _iPostCateGoryService;
+
         public PostCategoryController(IPostCateGoryService PostCateGoryService)
         {
             this._iPostCateGoryService = PostCateGoryService;
         }
 
 
+        /* [Route("create")]
+         public HttpResponseMessage Create(HttpResponseMessage request,[FromBody]PostCateGory value)
+         {
+             HttpResponseMessage response = null;
+             if (ModelState.IsValid)
+             {
+
+             }
+             else
+             {
+
+                 PostCateGory key = new PostCateGory();
+                 key.UpdatePostCateGory(value);
+                 _iPostCateGoryService.Add(value);
+                 _iPostCateGoryService.SaveChange();
+                 response = Request.CreateResponse(HttpStatusCode.Created, value);
+             }
+
+             return response;
+         }
+       */
+        [HttpPost]
+        [AllowAnonymous]
         [Route("create")]
-        public HttpResponseMessage Create(HttpResponseMessage request,PostCateGoryViewModel value)
+        public async Task<HttpResponseMessage> Create(HttpRequestMessage req, [FromBody]PostCateGoryViewModel model)
         {
-            HttpResponseMessage response = null;
+            var result = true;
             if (ModelState.IsValid)
             {
 
-            }
-            else
-            {
+                try
+                {
+                    PostCateGory key = new PostCateGory();
+                    key.UpdatePostCateGory(model);
+                    _iPostCateGoryService.Add(key);
 
-                PostCateGory key = new PostCateGory();
-                key.UpdatePostCateGory(value);
-                _iPostCateGoryService.Add(key);
-                _iPostCateGoryService.SaveChange();
-                response = Request.CreateResponse(HttpStatusCode.Created, value);
+
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                }
             }
-       
-            return response;
+            return req.CreateResponse(HttpStatusCode.OK, result);
         }
+
         [Route("update")]
         public HttpResponseMessage Update(HttpResponseMessage request, PostCateGoryViewModel value)
         {
@@ -87,13 +118,21 @@ namespace ShopGame.Web.API
         public HttpResponseMessage Get(HttpResponseMessage request)
         {
             HttpResponseMessage response = null;
-          
+
 
             var list = _iPostCateGoryService.getAll();
             var listCateVM = Mapper.Map<List<PostCateGoryViewModel>>(list);
-        
+
             response = Request.CreateResponse(HttpStatusCode.OK, listCateVM);
             return response;
         }
+
+        [Route("getall1")]
+        public IEnumerable getall()
+        {
+            return _iPostCateGoryService.getAll();
+        }
+
+
     }
 }

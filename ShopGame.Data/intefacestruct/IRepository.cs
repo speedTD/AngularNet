@@ -29,5 +29,7 @@ namespace ShopGame.Data.intefacestruct
 
         int CheckContains(Expression<Func<T, bool>> predicate);
 
+        void SaveChange();
+
     }
 }

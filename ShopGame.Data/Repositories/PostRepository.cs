@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShopGame.Data.Repositories
 {
-    interface IPostRepository
+    public interface IPostRepository :IRepository<Post>
     {
         //cac ham viet them ngoai RepositoryBase 
         IEnumerable<Post> GetAllByTag(String tag, int pageIndex, int pagesize,out int totalrow);

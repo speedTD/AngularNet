@@ -1,4 +1,7 @@
-﻿using ShopGame.Web.Infastucture.Core;
+﻿using AutoMapper;
+using ShopGame.Service;
+using ShopGame.Web.Infastucture.Core;
+using ShopGame.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,33 +11,28 @@ using System.Web.Http;
 
 namespace ShopGame.Web.API
 {
+    [RoutePrefix("api/post")]
     public class PostController : BaseApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+
+        IpostService _iPostService; 
+
+        public PostController(IpostService PostCateGoryService)
         {
-            return new string[] { "value1", "value2" };
+            this._iPostService = PostCateGoryService;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [Route("getall")]
+        public HttpResponseMessage Get(HttpResponseMessage request)
         {
-            return "value";
-        }
+            HttpResponseMessage response = null;
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            var list = _iPostService.getAll();
+            var listCateVM = Mapper.Map<List<PostViewModel>>(list);
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            response = Request.CreateResponse(HttpStatusCode.OK, listCateVM);
+            return response;
         }
     }
 }

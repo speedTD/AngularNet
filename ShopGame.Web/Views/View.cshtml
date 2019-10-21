@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ShopGame.Model.Models.PostCateGory>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.displayoder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metakeyword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metaDesciption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updatedat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updateby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.homeflag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parentid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.displayoder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.metakeyword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.metaDesciption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updatedat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updateby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homeflag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

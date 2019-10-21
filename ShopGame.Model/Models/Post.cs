@@ -52,5 +52,9 @@ namespace ShopGame.Model.Models
         public bool? hotflag { get; set; }
 
         public long? viewcount { get; set; }
+
+
+        //add include
+        
     }
 }

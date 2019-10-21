@@ -8,14 +8,14 @@ namespace ShopGame.Data.intefacestruct
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IDbFactory dbFactory;
-        private DbModelContext dbContext;
+         readonly IDbFactory dbFactory;
+          public  DbModelContext dbContext;
 
         public UnitOfWork(IDbFactory db)
         {
             this.dbFactory = db;
         }
-        public DbModelContext dbcontext
+        public DbModelContext Dbcontext
         {
             get { return dbContext ?? (dbContext =dbFactory.Init()); }
        
@@ -24,7 +24,7 @@ namespace ShopGame.Data.intefacestruct
 
         public void Commit()
         {
-            dbContext.SaveChanges();
+            Dbcontext.SaveChanges();
         }
     }
 }

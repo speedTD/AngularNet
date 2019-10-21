@@ -8,6 +8,7 @@ namespace ShopGame.Data.intefacestruct
 {
     public interface IUnitOfWork
     {
-        void Commit();
+
+         void Commit();
     }
 }

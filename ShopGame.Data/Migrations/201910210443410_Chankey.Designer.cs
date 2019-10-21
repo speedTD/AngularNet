@@ -7,13 +7,13 @@ namespace ShopGame.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InittialDB : IMigrationMetadata
+    public sealed partial class Chankey : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InittialDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Chankey));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910180616393_InittialDB"; }
+            get { return "201910210443410_Chankey"; }
         }
         
         string IMigrationMetadata.Source

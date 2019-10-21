@@ -36,11 +36,10 @@ namespace ShopGame.Service
             _postCategorrepository = postCategorrepository;
             _unitofwork = unitofwork;
         }
-      
-
         public void Add(PostCateGory entity)
         {
             _postCategorrepository.Add(entity);
+            _unitofwork.Commit();
 
         }
 
